@@ -104,7 +104,7 @@ class PDF::Writer::Graphics::ImageInfo
       Formats::GIF
     elsif @top[0, 3]  == "\xff\xd8\xff"
       Formats::JPEG
-    elsif @top[0, 8]  == "\x89PNG\x0d\x0a\x1a\x0a"
+    elsif @top[0, 8]  == "\x89PNG\x0d\x0a\x1a\x0a".force_encoding(Encoding::ASCII_8BIT)
       Formats::PNG
     elsif @top[0, 3]  == "FWS"
       Formats::SWF
