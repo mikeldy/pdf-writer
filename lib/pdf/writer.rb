@@ -710,11 +710,11 @@ class PDF::Writer
 
     xref = []
 
-    content = "%PDF-#{@version}\n%\303\242\303\243\303\217\303\223\n"
+    content = "%PDF-#{@version}\n%\303\242\303\243\303\217\303\223\n".force_encoding('ASCII-8BIT')
     pos = content.size
 
     objects.each do |oo|
-      cont = oo.to_s
+      cont = oo.to_s.force_encoding('ASCII-8BIT')
       content << cont
       xref << pos
       pos += cont.size
